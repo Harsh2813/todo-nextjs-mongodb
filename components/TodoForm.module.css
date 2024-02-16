@@ -1,0 +1,32 @@
+.formContainer {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .formLabel {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .formInput {
+    width: 150%;
+    padding: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .formButton {
+    padding: 8px 16px;
+    margin: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .formButton:hover {
+    background-color: #0056b3;
+  }

@@ -1,0 +1,30 @@
+.headerNav {
+    background-color: whitesmoke;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: row;
+    padding: auto;
+  }
+  
+  .navList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .navItem {
+    display: inline;
+    margin-right: 20px;
+    margin: 0px 5rem;
+    font-size: 30px;
+  }
+  
+  .navLink {
+    color: darkslategrey;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .navLink:hover {
+    color: #ccc;
+  }
