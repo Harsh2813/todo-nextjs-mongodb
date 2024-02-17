@@ -1,22 +1,33 @@
 .todoCard {
-    background-color: #f8f9fa;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    padding: 20px;
-    margin-bottom: 10px;
-    text-align: center;
-  }
-  
-  .todoTitle {
-    font-size: 20px;
-    font-weight: bold;
-  }
-  
-  .todoDescription {
-    margin-top: 10px;
-    font-size: 16px;
-  }
-  
-  .completeCheckbox {
-    margin-top: 10px;
-  }
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.todoTitle {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.todoDescription {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.completeCheckbox {
+  margin-top: 10px;
+}
+
+.deleteBtn {
+  top: 50%;
+  margin-left: 20px;
+  transform: translateY(-50%);
+  visibility: hidden; /* Hide delete icon by default */
+}
+
+.todoCard:hover .deleteBtn {
+  visibility: visible; /* Show delete icon when hovering over email item */
+}
