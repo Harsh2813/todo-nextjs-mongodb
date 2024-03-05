@@ -5,10 +5,12 @@ import TodoForm from "./TodoForm";
 
 const Todos = (props) => {
   const [showTodoForm, setShowTodoForm] = useState(false);
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   const addTodoHandler = async (todoDetails) => {
     //set data to mongodb
+    setLoading(true);
     try {
       const response = await fetch("/api/newTodo", {
         method: "POST",
@@ -26,9 +28,11 @@ const Todos = (props) => {
       console.log(error);
     }
     router.push("/");
+    setLoading(false);
   };
 
   const taskCompleteHandler = async (id) => {
+    setLoading(true);
     try {
       const response = await fetch("/api/updateTodo", {
         method: "PATCH",
@@ -42,9 +46,12 @@ const Todos = (props) => {
     } catch (error) {
       console.error(error);
     }
+    router.push("/");
+    setLoading(false);
   };
 
   const deleteTodoHandler = async (id) => {
+    setLoading(true);
     try {
       const response = await fetch("/api/deleteTodo", {
         method: "DELETE",
@@ -60,6 +67,8 @@ const Todos = (props) => {
     } catch (error) {
       console.error(error);
     }
+    router.push("/");
+    setLoading(false);
   };
 
   const closeTodo = () => {
@@ -71,17 +80,20 @@ const Todos = (props) => {
       <button
         onClick={() => setShowTodoForm(true)}
         style={{
-          backgroundColor: "blue",
-          color: "white",
+          backgroundColor: "lightblue",
+          color: "black",
+          cursor: 'pointer',
           padding: "10px",
-          margin: "10px",
+          margin: "50px",
+          fontSize: '20px'
         }}
       >
-        Add Todo
+        Add New Todo
       </button>
       {showTodoForm && (
         <TodoForm closeTodo={closeTodo} onAddTodo={addTodoHandler} />
       )}
+      {loading && <h1 style={{marginLeft: '700px'}}>Processing Please Wait...</h1>}
       <ul>
         {props.todo.map((item) => (
           <li key={item.id} className={styles.todoCard}>

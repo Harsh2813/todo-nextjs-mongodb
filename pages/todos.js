@@ -1,9 +1,14 @@
-import React from "react";
+import React, {useState} from "react";
 import { MongoClient } from "mongodb";
 import styles from '../components/Todos.module.css';
+import { useRouter } from "next/router";
 
 const CompletedTodos = (props) => {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const router = useRouter();
   const deleteTodoHandler = async (id) => {
+    setIsLoading(true);
     try {
       const response = await fetch("/api/deleteTodo", {
         method: "DELETE",
@@ -19,10 +24,13 @@ const CompletedTodos = (props) => {
     } catch (error) {
       console.error(error);
     }
+    router.push(router.asPath);
+    setIsLoading(false);
   };
 
   return (
     <>
+      {isLoading && <h1 style={{marginLeft: '750px'}}>Deleting...</h1>}
       <ul>
         {props.todos.map((item) => (
           <li key={item.id} className={styles.todoCard}>

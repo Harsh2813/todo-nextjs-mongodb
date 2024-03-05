@@ -39,12 +39,14 @@ const Homepage = (props) => {
     <>
       {/* <button onClick={() => setShowTodoForm(true)} style={{ backgroundColor: 'blue', color: 'white', padding: '10px', margin: '10px'}}>Add Todo</button>
       {showTodoForm && <TodoForm closeTodo={closeTodo} onAddTodo={addTodoHandler} />} */}
+      {console.log('line 42 exevuted')}
       <Todos todo={props.todos}/>
     </>
   );
 };
 
 export async function getStaticProps() { //fetched data from mongodb
+  console.log('getstaticprops executed')
   const client = await MongoClient.connect(
     "mongodb+srv://harshpk:Asdf-1234@cluster0.815angp.mongodb.net/todo?retryWrites=true&w=majority"
   );

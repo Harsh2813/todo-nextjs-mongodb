@@ -25,7 +25,8 @@ const handler = async (req, res) => {
 
     client.close();
 
-    if (!result.value) {
+    console.log('for patch0',result);
+    if (!result) {
       return res.status(404).json({ error: "Todo item not found" });
     }
 
